@@ -12,7 +12,7 @@ def initializeChrome():
 	global server
 	global proxy
 	dict={'port':8090}
-	server = Server(path="/usr/local/bin/browsermob-proxy", options=dict)
+	server = Server(path="/usr/local/bin/skillshare-dl/browsermob-proxy", options=dict)
 	server.start()
 	proxy = server.create_proxy()
 	chrome_options = webdriver.ChromeOptions()
