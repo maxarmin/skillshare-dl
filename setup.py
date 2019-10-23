@@ -82,7 +82,7 @@ if linux_flag == 1:
 	print("Moving it to /usr/local/bin/skillshare-dl/ ...")
 	os.system("unzip browsermob-proxy-2.1.4-bin.zip")
 	os.system("cp browsermob-proxy-2.1.4/bin/browsermob-proxy /usr/local/bin/skillshare-dl/")
-
+	os.system("chmod +x /usr/local/bin/skillshare-dl/browsermob-proxy")
 	print("Downloading the ChromeDriver for Chrome 77...")
 	os.system("wget https://chromedriver.storage.googleapis.com/77.0.3865.40/chromedriver_linux64.zip")
 	os.system("unzip chromedriver_linux64.zip")

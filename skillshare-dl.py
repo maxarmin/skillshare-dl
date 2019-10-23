@@ -129,7 +129,7 @@ def get_accept_value():
 
 def downloadVideosWithTitles(video_links, video_titles):
 	for index in range(len(video_links)):
-		urllib.request.urlretrieve(video_links[index], video_titles[index] + ".mp4")
+		urllib.request.urlretrieve(video_links[index], str(index) + " - " + video_titles[index] + ".mp4")
 
 def cleanUp():
     if os.path.isfile("bmp.log") == True:
