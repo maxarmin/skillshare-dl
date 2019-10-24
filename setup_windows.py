@@ -6,8 +6,6 @@ import os
 import shutil
 import zipfile
 
-
-
 print("------------skillshare-dl setup/installer------------")
 print("This script is going to install all the neccessary dependencies",
 "and tools needed to run skillshare-dl.")
@@ -25,14 +23,12 @@ if chrome_installed_flag == 'n':
 	print("Please install Chrome. Exiting now...")
 	exit()
 
+#Installs it on both python2 and python3 because that's how things work, apparently
+
 print("Installing Selenium...")
-try:
-	os.system('python3 -m pip install selenium')
-except:	
-	os.system('python -m pip install selenium')
+os.system('python3 -m pip install selenium')
+os.system('python -m pip install selenium')
 print("Installing browsermob-proxy...")
 
-try:
-	os.system("python3 -m pip install browsermob-proxy")
-except:
-	os.system("python -m pip install browsermob-proxy")
+os.system("python3 -m pip install browsermob-proxy")
+os.system("python -m pip install browsermob-proxy")
