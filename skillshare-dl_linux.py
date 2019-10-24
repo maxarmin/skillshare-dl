@@ -115,6 +115,11 @@ def downloadAllVideosJson(accept_value, videos_list, titles_list):
 
 	return videos_list_json
 
+def getCourseTitle():
+	course_title_field = driver.find_element_by_css_selector('#video-region > div > div.video-player-container.js-cd-video-player-container > div.video-player-layout.title-container > div > div > h1')	
+	course_title = course_title_field.text
+	return course_title
+
 def getVideoLinksAndTitle(videos_list_json):
 	video_links = []
 	video_titles = []
@@ -216,6 +221,7 @@ def main():
 	print("Current URL: " + driver.current_url)
 	proxy.new_har("skillshare", options={'captureHeaders': True})
 	driver.refresh()
+	course_title = getCourseTitle()
 	videos_list = []
 	number_of_videos, titles_list = get_number_of_videos()
 	for index in range(number_of_videos):
