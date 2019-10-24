@@ -80,7 +80,6 @@ def get_number_of_videos():
 		#video-region > div > div.video-player-container.js-cd-video-player-container > div.video-player > div.video-and-playlist.video-player-layout.js-video-and-playlist-container > div.video-playlist-module.js-video-playlist-module > div > div.unit-list-wrapper > ul > li > ul > li.session-item.first > div > div.section.information > p
 		text = item.find_element_by_css_selector('div > div.section.information > p')
 		text = text.text
-		print(type(text))
 		print("Title: " + text)
 		titles_list[loop_index] = text
 		loop_index += 1
