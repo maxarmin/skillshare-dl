@@ -26,7 +26,13 @@ if chrome_installed_flag == 'n':
 	exit()
 
 print("Installing Selenium...")
-os.system('python3 -m pip install selenium')
-
+try:
+	os.system('python3 -m pip install selenium')
+except:	
+	os.system('python -m pip install selenium')
 print("Installing browsermob-proxy...")
-os.system("python3 -m pip install browsermob-proxy")
+
+try:
+	os.system("python3 -m pip install browsermob-proxy")
+except:
+	os.system("python -m pip install browsermob-proxy")
