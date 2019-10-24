@@ -5,18 +5,28 @@
 A script to download courses from Skillshare.com
 
 ## Usage
+
+On Windows:
+Open Chrome and sign into Skillshare.com, afterwards close all open Chrome windows. Then run:
+```
+python3 setup_windows.py
+python3 skillshare-dl_windows.py
+```
+
+On Linux:
 ```
 sudo python3 setup.py
 python3 skillshare-dl.py
 ```
-Please maximize the Chrome window once it opens, otherwise you (and therefore the script) most likely won't be able to see the buttons it needs to click on.
+
+Please maximize the Chrome window once it opens and close the "Disable Developer Mode" warning if it shows up, otherwise you (and therefore the script) most likely won't be able to see the buttons it needs to click on.
 
 ## Requirements
 
 * Chrome 77
-* Linux
+* Linux / Windows
 * a Skillshare account
-* ChromeDriver (will be installed)
+* ChromeDriver (included)
 * Selenium (will be installed)
 * Python 3 (preferably 3.7)
 * pip
