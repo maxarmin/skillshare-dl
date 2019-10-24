@@ -76,13 +76,15 @@ def get_number_of_videos():
 	videos = all_videos.find_elements_by_tag_name("li")
 	number_of_videos = len(videos)
 	titles_list = []
+	loop_index = 0
 	for item in videos:
 		titles_list.append(item)
 		#video-region > div > div.video-player-container.js-cd-video-player-container > div.video-player > div.video-and-playlist.video-player-layout.js-video-and-playlist-container > div.video-playlist-module.js-video-playlist-module > div > div.unit-list-wrapper > ul > li > ul > li.session-item.first > div > div.section.information > p
 		text = item.find_element_by_css_selector('div > div.section.information > p')
 		text = text.text
 		print("Title: " + text)
-		#titles_list[item] = str(text)
+		titles_list[loop_index] = text
+		loop_index += 1
 	return number_of_videos, titles_list
 
 def downloadAllVideosJson(accept_value, videos_list, titles_list):
@@ -141,7 +143,48 @@ def get_accept_value():
 
 def downloadVideosWithTitles(video_links, video_titles):
 	for index in range(len(video_links)):
-		urllib.request.urlretrieve(video_links[index], str(index) + " - " + video_titles[index] + ".mp4")
+		urllib.request.urlretrieve(video_links[index], str(index) + " - " + repairFilename(video_titles[index]) + ".mp4")
+
+def repairFilename(filename):
+    '''
+    Filenames are problematic, Windows, Linux and macOS don't
+    allow certain characters. This (mess) fixes that. Basically 
+    every other character, no matter how obscure, is seemingly
+    supported though.
+    '''
+
+    if u"/" in filename:
+        filename = filename.replace(u"/", u"-")
+    if u"\\" in filename:
+        filename = filename.replace(u"\\", u"-")
+    if u"|" in filename:
+        filename = filename.replace(u"|", u"-")
+    if u":" in filename:
+        filename = filename.replace(u":", u"-")
+    if u"?" in filename:
+        filename = filename.replace(u"?", u"-")
+    if u"<" in filename:
+        filename = filename.replace(u"<", u"-")
+    if u">" in filename:
+        filename = filename.replace(u">", u"-")
+    if u'"' in filename:
+        filename = filename.replace(u'"', u"-")
+    if u"*" in filename:
+        filename = filename.replace(u"*", u"-")
+    if u"..." in filename:
+        filename = filename.replace(u"...", u"---")
+
+    return filename
+
+def makeDirectoryForCourse(course_title):
+	course_title = repairFilename(course_title)
+	if "/" in course_title:
+		course_title.replace("/","-")
+	if not os.path.exists(course_title):
+		os.makedirs(course_title)
+		os.chdir(course_title)
+	else:
+		os.chdir(course_title)
 
 def cleanUp():
     if os.path.isfile("bmp.log") == True:
@@ -195,8 +238,11 @@ def main():
 	write_links_to_file()
 	accept_value = get_accept_value()
 	videos_list_json = downloadAllVideosJson(accept_value, videos_list, titles_list)
-	video_links, video_titles = getVideoLinksAndTitle(videos_list_json)
-	downloadVideosWithTitles(video_links, video_titles)
+	#video_links, video_titles = getVideoLinksAndTitle(videos_list_json)
+	video_links, titles_list = getVideoLinksAndTitle(videos_list_json)
+	#downloadVideosWithTitles(video_links, video_titles)
+	makeDirectoryForCourse(course_title)
+	downloadVideosWithTitles(video_links, titles_list)
 	cleanUp()
 
 if __name__ == '__main__':

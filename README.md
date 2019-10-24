@@ -15,8 +15,8 @@ python3 skillshare-dl_windows.py
 
 On Linux:
 ```
-sudo python3 setup.py
-python3 skillshare-dl.py
+sudo python3 setup_linux.py
+python3 skillshare-dl_linux.py
 ```
 
 Please maximize the Chrome window once it opens and close the "Disable Developer Mode" warning if it shows up, otherwise you (and therefore the script) most likely won't be able to see the buttons it needs to click on.
