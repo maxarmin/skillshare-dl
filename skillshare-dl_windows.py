@@ -149,7 +149,7 @@ def get_accept_value():
 
 def downloadVideosWithTitles(video_links, video_titles):
 	for index in range(len(video_links)):
-		urllib.request.urlretrieve(video_links[index], str(index) + " - " + repairFilename(video_titles[index]) + ".mp4")
+		urllib.request.urlretrieve(video_links[index],repairFilename(video_titles[index]) + ".mp4")
 
 def cleanUp():
 	if os.path.isfile("bmp.log") == True:
@@ -226,6 +226,7 @@ def main():
 	course_title = getCourseTitle()
 	videos_list = []
 	number_of_videos, titles_list = get_number_of_videos()
+	print(titles_list)
 	for index in range(number_of_videos):
 		videos_list.append(index)
 		videos_list[index] = index
@@ -242,15 +243,18 @@ def main():
 
 	server.stop()
 	driver.quit()
-	print(videos_list)
+	#print(videos_list)
 	write_links_to_file()
 	accept_value = get_accept_value()
 	videos_list_json = downloadAllVideosJson(accept_value, videos_list, titles_list)
-	#video_links, video_titles = getVideoLinksAndTitle(videos_list_json)
-	video_links, titles_list = getVideoLinksAndTitle(videos_list_json)
+	video_links, video_titles = getVideoLinksAndTitle(videos_list_json)
+	#video_links, titles_list = getVideoLinksAndTitle(videos_list_json)
+	print(titles_list)
+	#print(video_titles)
 	#downloadVideosWithTitles(video_links, video_titles)
 	makeDirectoryForCourse(course_title)
 	downloadVideosWithTitles(video_links, titles_list)
+	#downloadVideosWithTitles(video_links,tit)
 	cleanUp()
 
 if __name__ == '__main__':
