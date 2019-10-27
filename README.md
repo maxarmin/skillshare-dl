@@ -27,6 +27,7 @@ Please maximize the Chrome window once it opens and close the "Disable Developer
 * Linux / Windows
 * a Skillshare account
 * ChromeDriver (included)
+* Java (running 'java' in cmd should give you valid output)
 * Selenium (will be installed)
 * Python 3 (preferably 3.7)
 * pip
