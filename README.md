@@ -37,7 +37,9 @@ Please maximize the Chrome window once it opens and close the "Disable Developer
 
 Click on the image below for a video showing how to use skillshare-dl:
 
-[![skillshare-dl](http://i3.ytimg.com/vi/x0uGjobkffI/maxresdefault.jpg)](https://youtu.be/x0uGjobkffI)
+Linux:
+[![skillshare-dl Linux](http://i3.ytimg.com/vi/x0uGjobkffI/maxresdefault.jpg)](https://youtu.be/x0uGjobkffI)
 
-
+Windows:
+[![skillshare-dl Windows](http://i3.ytimg.com/vi/P_EqgSxdW4s/maxresdefault.jpg)](https://youtu.be/P_EqgSxdW4s)
 
