@@ -20,7 +20,7 @@ def initializeChrome():
 	server.start()
 	proxy = server.create_proxy()
 	user_agent = 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/60.0.3112.50 Safari/537.36'
-	username_windows = input("Please enter your username the way it's written\nin C:/Users/ - it's needed to locate your Chrome user data: ")
+	username_windows = os.getenv('username')
 	user_data_path = Path('C:/Users/' + str(username_windows) + '/AppData/Local/Google/Chrome/User Data')
 	chrome_options = webdriver.ChromeOptions()
 	chrome_options.add_argument("--disable-extensions")
