@@ -23,7 +23,7 @@ Please maximize the Chrome window once it opens and close the "Disable Developer
 
 ## Requirements
 
-* Chrome 77
+* Chrome 79
 * Linux / Windows
 * a Skillshare account
 * ChromeDriver (included)
