@@ -24,6 +24,7 @@ def initializeChrome():
 	user_data_path = Path('C:/Users/' + str(username_windows) + '/AppData/Local/Google/Chrome/User Data')
 	chrome_options = webdriver.ChromeOptions()
 	chrome_options.add_argument("--disable-extensions")
+	chrome_options.add_argument("--ignore-certificate-errors")
 	chrome_options.add_argument("--proxy-server={0}".format(proxy.proxy))
 	chrome_options.add_experimental_option("excludeSwitches", ['enable-automation'])
 	chrome_options.add_argument(f'--user-data-dir={user_data_path}')

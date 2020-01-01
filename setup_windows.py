@@ -26,9 +26,25 @@ if chrome_installed_flag == 'n':
 #Installs it on both python2 and python3 because that's how things work, apparently
 
 print("Installing Selenium...")
-os.system('python3 -m pip install selenium')
-os.system('python -m pip install selenium')
-print("Installing browsermob-proxy...")
+try:
+	os.system('python3 -m pip install selenium')
+except:
+	print("PASS")
+	pass
+try:
+	os.system('python -m pip install selenium')
+except:
+	print("PASS")
+	pass
 
-os.system("python3 -m pip install browsermob-proxy")
-os.system("python -m pip install browsermob-proxy")
+print("Installing browsermob-proxy...")
+try:
+	os.system("python3 -m pip install browsermob-proxy")
+except:
+	print("PASS")
+	pass
+try:
+	os.system("python -m pip install browsermob-proxy")
+except:
+	print("PASS")
+	pass
