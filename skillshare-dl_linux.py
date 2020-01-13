@@ -13,23 +13,14 @@ def initializeChrome():
 	global server
 	global proxy
 	dict={'port':8090}
-	try:
-		server = Server(path="/usr/local/bin/skillshare-dl/browsermob-proxy", options=dict)
-	except:
-		path_to_bmp = Path("./binaries/browsermob-proxy-2.1.4/bin/browsermob-proxy").absolute()
-		path_on_windows = str(PureWindowsPath(path_to_bmp))
-		server = Server(path=path_on_windows, options=dict)
-		#server = Server(path="binaries/browsermob-proxy-2.1.4/bin/browsermob-proxy", options=dict)
+
+	server = Server(path="./binaries/browsermob-proxy-2.1.4/bin/browsermob-proxy", options=dict)
 	server.start()
 	proxy = server.create_proxy()
 	chrome_options = webdriver.ChromeOptions()
 	chrome_options.add_argument("--proxy-server={0}".format(proxy.proxy))
 
-	path_to_chromedriver = str(Path("./binaries/chromedriver.exe").absolute())
-	try:
-		driver = webdriver.Chrome(options = chrome_options)
-	except:
-		driver = webdriver.Chrome(path_to_chromedriver, options = chrome_options)
+	driver = webdriver.Chrome(str(Path("./binaries/chromedriver").absolute()), options = chrome_options)
 	print('initialized Chrome window!')
 
 '''
