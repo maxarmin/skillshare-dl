@@ -42,6 +42,9 @@ else:
 print("Installing Python 3...")
 os.system("apt-get install python3")
 
+print("Installing Java JRE...")
+os.system("apt-get install default-jre")
+
 print("Installing Selenium...")
 os.system('python3 -m pip install selenium')
 
