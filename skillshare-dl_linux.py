@@ -19,6 +19,7 @@ def initializeChrome():
 	proxy = server.create_proxy()
 	chrome_options = webdriver.ChromeOptions()
 	chrome_options.add_argument("--proxy-server={0}".format(proxy.proxy))
+	chrome_options.add_argument("--ignore-certificate-errors")
 
 	driver = webdriver.Chrome(str(Path("./binaries/chromedriver").absolute()), options = chrome_options)
 	print('initialized Chrome window!')
